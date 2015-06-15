@@ -16,13 +16,27 @@ public class Member extends TheaterPatron{
 		return card;
 	}
 	
+	/**
+	 * Searches the list of creditCards the Member currently holds for 
+	 * the creditCardNumber provided, and removes it. 
+	 * @param creditCardNumber
+	 * @return true : if found and removed 
+	 * 	false: if not found or Member only has one creditCard	
+	 */
 	public boolean removeCreditCard(String creditCardNumber){
-		if(true){ //find card
-			//remove it from the list
-			return true;
+		
+		boolean removed = false;
+		
+		//Member has more than one card
+		if(creditCards.size() > 1){ 
+			for(int i = 0; i < creditCards.size(); i++){
+				if(creditCards.get(i).getCreditCardNumber().equals(creditCardNumber)){
+					creditCards.remove(i);
+					removed = true;
+					return removed;
+				}				
+			}			
 		}
-		else{
-			return false;
-		}
+		return removed;		
 	}
 }
