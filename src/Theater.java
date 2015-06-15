@@ -53,9 +53,24 @@ public class Theater {
 		return card;
 	}
 	
+	/**
+	 * Searches all members for a creditCard then removes it
+	 * @param creditCardNumber
+	 * @return
+	 */
 	public boolean removeCreditCard(String creditCardNumber){
-		//remove member
-	return true;
+		Iterator<Member> itr = members.iterator();
+		boolean removed = false;
+		
+		while(itr.hasNext()){
+			Member member = itr.next();
+			//Member has a card it can legally remove
+			if(member.getNumberOfCreditCards() > 1)
+				//if found and it has been removed
+				if(member.removeCreditCard(creditCardNumber))
+					removed = true;
+		}		
+	return removed;
 	}
 	
 	public Show addShow(String clientID, String name, Date startDate, Date endDate){
