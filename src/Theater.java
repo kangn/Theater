@@ -73,10 +73,8 @@ public class Theater {
 		
 		while(itr.hasNext()){
 			Member member = itr.next();
-			//Member has a card it can legally remove
-			if(member.getNumberOfCreditCards() > 1)
-				//if found and it has been removed
-				if(member.removeCreditCard(creditCardNumber))
+			//Will look into this member and try to remove CC
+			if(member.removeCreditCard(creditCardNumber))
 					removed = true;
 		}		
 	return removed;

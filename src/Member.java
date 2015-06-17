@@ -15,16 +15,7 @@ public class Member extends TheaterPatron{
 		creditCards.add(card);
 		return card;
 	}
-	
-	/**
-	 * Will notify Theater if the member has more than one 
-	 * Credit cards(Member has to have one)
-	 * @return number of credit cards member has
-	 */
-	public int getNumberOfCreditCards(){
-		return creditCards.size();
-	}
-	
+		
 	/**
 	 * Searches the list of creditCards the Member currently holds for 
 	 * the creditCardNumber provided, and removes it. 
