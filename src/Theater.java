@@ -9,9 +9,18 @@ public class Theater {
 	private int seatCapacity;
 	private ArrayList<Client> clients; //depends on the list discussion. should be changed to correction collection class
 	private ArrayList<Member> members;
+	private static Theater singletonTheater;
 	
-	public Theater(){
-		//singleton
+	private Theater(String name, int seatCapacity){
+		this.name = name;
+		this.seatCapacity = seatCapacity;
+	}
+	
+	public static Theater instance(String name, int capacity){
+		if(singletonTheater == null){
+			singletonTheater = new Theater(name, capacity);
+		}
+		return singletonTheater;
 	}
 	
 	public Client addClient(String name, String address, String phoneNumber){

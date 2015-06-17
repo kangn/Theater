@@ -1,16 +1,18 @@
-package src;
+
 
 public abstract class TheaterPatron {
 	private String id;
 	private String name;
 	private String address;
 	private String phoneNumber;
+	private static int counter = 0;
 	
 	public TheaterPatron(String name, String address, String phoneNumber){
 		this.name = name;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 		this.id = generateID();
+		counter++;
 	}
 	
 	public String getID(){
@@ -42,7 +44,11 @@ public abstract class TheaterPatron {
 	}
 	public String generateID(){
 		String id;
-		//generate a uniqueID
+		int nameLength = this.name.length();
+		if (nameLength > 6){
+			nameLength = 6;
+		}
+		id = this.name.substring(0, nameLength) + counter;
 		return id;
 	}
 	
